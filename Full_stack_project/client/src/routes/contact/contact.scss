@@ -1,0 +1,129 @@
+.contact {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+  
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #333;
+      animation: fadeInDown 1s ease, colorPulse 2s infinite alternate;
+    }
+  
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #666;
+      animation: fadeIn 1.2s ease;
+    }
+  
+    .contact-form {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+  
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          animation: fadeInUp 1.3s ease;
+  
+          label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #333;
+          }
+  
+          input,
+          textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+  
+            &:focus {
+              border-color: #007bff;
+              transform: scale(1.02);
+            }
+          }
+  
+          textarea {
+            resize: none;
+            height: 100px;
+          }
+        }
+  
+        .submit-button {
+          background-color: #ada150;
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          font-size: 1.1rem;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  
+          &:hover {
+            background-color: #b59f0e;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 91, 187, 0.2);
+          }
+  
+          &:active {
+            background-color: #003f7f;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes colorPulse {
+      from {
+        color: #333;
+      }
+      to {
+        color: #99853c;
+      }
+    }
+  }
+  

@@ -1,0 +1,188 @@
+@import "../../responsive.scss";
+
+.about {
+  display: flex;
+  height: 100%; /* Ensures the container takes the full height of the page */
+  justify-content: space-between; /* Ensures content is on the left, image on the right */
+  animation: fadeIn 1.5s ease; /* Smooth fade-in animation for the entire section */
+
+  /* Content Container (on the left) */
+  .contentContainer {
+    flex: 3; /* Takes 3/5th of the space */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+    position: relative;
+    animation: slideInLeft 1.5s ease;
+
+    .scrollableContent {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 10px;
+        animation: textBounce 1.8s ease-in-out;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+        animation: fadeIn 1.2s ease;
+      }
+
+      section {
+        h2 {
+          font-size: 1.5rem;
+          color: #444;
+          margin-bottom: 10px;
+          animation: fadeInDown 1s ease;
+        }
+
+        ul {
+          list-style-type: disc;
+          margin-left: 20px;
+
+          li {
+            margin-bottom: 8px;
+            color: #555;
+            animation: fadeInUp 0.8s ease;
+
+            strong {
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Image Container (on the right) */
+  .imgContainer {
+    flex: 2; /* Takes 2/5th of the space */
+    background-color: #fcf5f3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 100vh;
+    width: 100%;
+    flex-shrink: 0; /* Prevent image container from shrinking */
+    animation: slideInRight 1.5s ease;
+
+    @include md {
+      display: none; /* Hide image container on medium devices */
+    }
+
+    img {
+      width: 115%;
+      position: absolute;
+      right: 0;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+      }
+
+      @include lg {
+        width: 105%; /* Adjust width for large screens */
+      }
+    }
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column; /* Stack content and image vertically */
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease;
+  }
+
+  .contentContainer {
+    max-width: 100%;
+    margin-bottom: 20px; /* Space between content and image */
+  }
+
+  .imgContainer {
+    max-width: 100%;
+    height: auto;
+    order: -1; /* Image appears below the content on mobile */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textBounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}

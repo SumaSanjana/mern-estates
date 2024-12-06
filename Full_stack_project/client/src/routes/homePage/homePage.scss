@@ -1,0 +1,160 @@
+@import "../../responsive.scss";
+
+.homePage {
+  display: flex;
+  height: 100%;
+  animation: fadeIn 1.5s ease;
+
+  .textContainer {
+    flex: 3;
+
+    .wrapper {
+      padding-right: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+      height: 100%;
+      animation: slideInLeft 1.5s ease;
+
+      @include lg {
+        padding-right: 50px;
+      }
+
+      @include md {
+        padding: 0;
+      }
+
+      @include sm {
+        justify-content: flex-start;
+      }
+
+      .title {
+        font-size: 64px;
+        color: #333;
+        animation: textBounce 2s ease-in-out;
+        animation-delay: 0.2s;
+
+        @include lg {
+          font-size: 48px;
+        }
+      }
+
+      .boxes {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        @include sm {
+          display: none;
+        }
+
+        .box {
+          text-align: center;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          }
+
+          h1 {
+            font-size: 36px;
+            color: #007bff;
+
+            @include lg {
+              font-size: 32px;
+            }
+          }
+
+          h2 {
+            font-size: 20px;
+            font-weight: 300;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+
+  .imgContainer {
+    flex: 2;
+    background-color: #fcf5f3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    animation: slideInRight 1.5s ease;
+
+    @include md {
+      display: none;
+    }
+
+    img {
+      width: 115%;
+      position: absolute;
+      right: 0;
+      animation: fadeInUp 1.5s ease;
+
+      @include lg {
+        width: 105%;
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textBounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
